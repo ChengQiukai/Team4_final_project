@@ -11,7 +11,7 @@ Qiukai Cheng, Zhiyuan Liu
 
 ## Presentation
 
-[presentation slides]("C:\Users\cheng\Desktop\team-4.pptx")
+[presentation slides](https://github.com/ChengQiukai/Team4_final_project/blob/main/team-4.pptx)
 
 ## Data App
 
