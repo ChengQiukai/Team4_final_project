@@ -1,7 +1,12 @@
+# Final Project
+This is the website for the final project.
+
+## Team
+
+Qiukai Cheng, Zhiyuan Liu
 
 ## Dataset
 
-https://www.kaggle.com/datasets/prachi13/customer-analytics
 [E-Commerce Shipping Data](https://www.kaggle.com/datasets/prachi13/customer-analytics)
 
 ## Presentation
@@ -10,5 +15,4 @@ https://www.kaggle.com/datasets/prachi13/customer-analytics
 
 ## Data App
 
-https://chengqiukai-team4-final-project-team4-final-project-u53yc8.streamlitapp.com/
 [Streamlit Demo](https://chengqiukai-team4-final-project-team4-final-project-u53yc8.streamlitapp.com/)
