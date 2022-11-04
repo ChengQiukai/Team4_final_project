@@ -1,5 +1,6 @@
 # Final Project
 This is the website for the final project.
+An international e-commerce company wants to discover key insights from their customer database. They want to use some of the most advanced techniques to study their customers. We use python to analyze the given order data, hoping to help the company improve its performance.
 
 ## Team
 

@@ -111,7 +111,6 @@ p=plt.figure()
 sns.heatmap(df.corr(),annot=True)
 st.pyplot(p)
 
-
 #Each color represents a different transportation method.
 st.subheader("Shipment mode, product cost and quantity")
 f=plt.figure(figsize=(10,6))
@@ -123,7 +122,7 @@ plt.legend()
 st.pyplot(f)
 
 #Use a line graph to represent the relationship between Warehouse block, Customer rating, and reach on time rate"
-st.subheader("Warehouse block, Customer rating, reach on time lineplot")
+st.subheader("Warehouse block, Customer rating, reach on time line graph")
 f=plt.figure(figsize=(10,6))
 sns.lineplot(x='Warehouse_block',y='Customer_rating',hue='Reached.on.Time_Y.N',data=df).set_title('Warehouse_block VS Customer_rating lineplot')
 st.pyplot(f)
