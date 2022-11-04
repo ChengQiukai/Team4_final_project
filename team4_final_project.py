@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import streamlit as st
 plt.style.use('seaborn')
 
@@ -11,7 +12,6 @@ if st.checkbox('Show dataframe'):
     df
 
 st.sidebar.header("Mode")
-st.title("Function")
 input= st.sidebar.number_input('Which index data do you want to watch?(<4999)',value=0, min_value = 0, max_value = 5000)
 st.write("watch input index data")
 data=pd.DataFrame(df.iloc[[input]])
@@ -31,9 +31,9 @@ gender_filter = st.sidebar.multiselect(
 
 Price_filter = st.slider('Cost_of_the_Product:', 120, 250) 
 
-df=df.loc[df['Warehouse_block'].isin(list(options))]
-
 #Warehouse_block distribution
+st.title("Basic App")
+df=df.loc[df['Warehouse_block'].isin(list(options))]
 st.subheader("Warehouse block distribution")
 f=plt.figure(figsize=(10,6))
 plt.pie(df.Warehouse_block.value_counts(),startangle=90,autopct='%.2f%%',labels=list(df.Warehouse_block.value_counts().index),radius=10,colors=['orange','pink','gray','yellow','purple'])
@@ -47,8 +47,6 @@ f=plt.figure(figsize=(10,6))
 category=df['Reached.on.Time_Y.N'].value_counts()
 category.plot(kind='bar',color='orange')
 st.pyplot(f)
-
-st.title("plots")
 
 #Weight-cost histogram
 st.subheader("Weight distribution of product")
@@ -93,5 +91,40 @@ ax[0].set_ylabel('Weight_in_gms',fontsize=20)
 ax[1].scatter(df['Discount_offered'],df['Cost_of_the_Product'],color='orange')
 ax[1].set_xlabel('Discount_offered',fontsize=20)
 ax[1].set_ylabel('Cost_of_the_Product',fontsize=20)
+st.pyplot(f)
+
+st.title("Further App")
+st.subheader("Whether the warehouse block is related to reach on time rate ")
+p=plt.figure()
+sns.barplot(x='Warehouse_block',y='Reached.on.Time_Y.N',data=df,palette='Spectral')
+st.pyplot(p)
+
+#The relationship between different shipping methods, importance and arrival rate
+st.subheader("Shipment mode, product importance and reach on time rate")
+p=plt.figure()
+sns.barplot(x='Mode_of_Shipment',y='Reached.on.Time_Y.N',data=df,hue='Product_importance',palette='ch:s=-.2,r=.6')
+st.pyplot(p)
+
+#Use a heatmap to see if there are correlations between features
+st.subheader("Heatmap")
+p=plt.figure()
+sns.heatmap(df.corr(),annot=True)
+st.pyplot(p)
+
+
+#Each color represents a different transportation method.
+st.subheader("Shipment mode, product cost and quantity")
+f=plt.figure(figsize=(10,6))
+df[df['Mode_of_Shipment']=='Flight']['Cost_of_the_Product'].hist(alpha=0.5,color='blue',bins=30,label='Flight')
+df[df['Mode_of_Shipment']=='Road']['Cost_of_the_Product'].hist(alpha=0.5,color='red',bins=30,label='Road')
+df[df['Mode_of_Shipment']=='Ship']['Cost_of_the_Product'].hist(alpha=0.5,color='grey',bins=30,label='Ship')
+plt.xlabel('Cost')
+plt.legend()
+st.pyplot(f)
+
+#Use a line graph to represent the relationship between Warehouse block, Customer rating, and reach on time rate"
+st.subheader("Warehouse block, Customer rating, reach on time lineplot")
+f=plt.figure(figsize=(10,6))
+sns.lineplot(x='Warehouse_block',y='Customer_rating',hue='Reached.on.Time_Y.N',data=df).set_title('Warehouse_block VS Customer_rating lineplot')
 st.pyplot(f)
 
