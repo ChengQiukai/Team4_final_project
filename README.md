@@ -19,9 +19,9 @@ Qiukai Cheng, Zhiyuan Liu
 
 ## Brief conclusion and analysis
 
-1. Male customers give less negative comments. Female spend more money on products. Male shows great difference when purchasing the electronic products. Company should pay more attention to female customer.
+1. Male customers give less negative comments and show great difference when purchasing the electronic products. Female customers spend more money on products. Company should pay more attention to female customers.
 2. The warehouse area has little influence on the delivery. The arrival rate of different shipping methods is basically the same, but the arrival rate of products with higher importance rate is relatively higher. 
-3. Regardless of the cost of the product, most choose is to transport by ship, and the proportions of the other two modes of shipment are similar. Also there is no absolute relationship between product price and weight.
+3. Regardless of the cost of the product, most choice is to transport by ship, and the proportions of the other two modes of shipment are similar. Also there is no absolute relationship between product price and weight.
 
 
 
